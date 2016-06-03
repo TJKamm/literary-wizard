@@ -1,249 +1,289 @@
- var bookList = document.getElementById("bookList");
+var chosenImages = new Array();
+var chosenArray = new Array();
+var booksRecomList = new Array();
 
-	var booksDisplay = {};
+var bookList = document.getElementById("bookList");
+var bookRecs = document.getElementById("bookRecs");
+
+	var booksDisplay = [];
 	
-	booksDisplay = {
-		book1 : {
+	booksDisplay = [
+		{
 			img : "images/book1.jpg",
 			title : "A Song of Ice and Fire",
 			author : "George R.R. Martin",
             genre : "High Fantasy"
 		},
-		book2 : {
+		{
 			img : "images/book2.jpg",
 			title : "All the Light We Cannot See",
 			author : "Anthony Doerr",
             genre : "WW2 Historical Fiction"
 		},
-		book3 : {
+		{
 			img : "images/book3.jpg",
-			title : "The Book Thief",
-			author : "Markus Zusak",
-            genre : "Historical Fiction"
+			title : "The Thirteenth Tale",
+			author : "Diane Setterfield",
+            genre : "Books about Books"
 		},
-        book4 : {
+        {
 			img : "images/book4.jpg",
 			title : "The Girl with the Dragon Tattoo",
 			author : "Stieg Larsson",
             genre : "Murder Mystery"
 		},
-		book5 : {
+		{
 			img : "images/book5.jpg",
 			title : "The Road",
 			author : "Cormac McCarthy",
             genre : "Post-Apocalyptic"
 		},
-		book6 : {
+		{
 			img : "images/book6.jpg",
 			title : "Fahrenheit 451",
 			author : "Ray Bradbury",
             genre : "Futuristic Utopia"
 		},
-		book7 : {
+		{
 			img : "images/book7.jpg",
 			title : "Frankenstein",
 			author : "Mary Shelley",
             genre : "Monster Horror"
         },
-		book8 : {
+		{
 			img : "images/book8.jpg",
 			title : "Watchmen",
 			author : "Alan Moore",
-            genre : "Superhero/Graphic Novel"
+            genre : "Superhero or Graphic Novel"
 		},
-		book9 : {
+		{
 			img : "images/book9.jpg",
 			title : "Gone Girl",
 			author : "Gillian Flynn",
             genre : "Psychological Thriller"
 		},
-		book10 : {
+		{
 			img : "images/book10.jpg",
 			title : "Harry Potter and the Sorcerer's Stone",
 			author : "J.K. Rowling",
             genre : "YA Fantasy"
 		},
-		book11 : {
+		{
 			img : "images/book11.jpg",
 			title : "The Great Gatsby",
 			author : "F. Scott Fitzgerald",
             genre : "Classic Fiction"
 		},
-		book12 : {
+		{
 			img : "images/book12.jpg",
 			title : "The Kite Runner",
 			author : "Khaled Hosseini",
             genre : "Cultural Fiction"
 		},
-		book13 : {
+		{
 			img : "images/book13.jpg",
 			title : "The Goldfinch",
 			author : "Donna Tartt",
             genre : "Modern Fiction"
 		},
-		book14 : {
+		{
 			img : "images/book14.jpg",
 			title : "Storm Front",
 			author : "Jim Butcher",
             genre : "Fantasy Mystery"
 		},
-		book15 : {
+		{
 			img : "images/book15.jpg",
-			title : "BLANK",
-			author : "BLANK",
-            genre : "BLANK"
+			title : "The Bell Jar",
+			author : "Sylvia Plath",
+            genre : "Psychological Fiction"
 		}
-	};
+	];
 
-	booksRecom = {
-		book1 : {
+	booksRecom = [
+		{
 			img : "images/bookRec1.jpg",
 			title : "The Name of the Wind (The Kingkiller Chronicle)",
 			author : "Patrick Rothfuss",
             genre : "High Fantasy"
 		},
-		book2 : {
+		{
 			img : "images/bookRec2.jpg",
 			title : "The Blade Itself (The First Law)",
 			author : "Joe Abercrombie",
             genre : "High Fantasy"
 		},
-		book3 : {
+		{
 			img : "images/bookRec3.jpg",
 			title : "The Book Thief",
 			author : "Markus Zusak",
             genre : "WW2 Historical Fiction"
 		},
-        book4 : {
+        {
 			img : "images/bookRec4.jpg",
 			title : "City of Thieves",
 			author : "David Benioff",
             genre : "WW2 Historical Fiction"
 		},
-		book5 : {
+		{
 			img : "images/bookRec5.jpg",
 			title : "Night Film",
 			author : "Marisha Pessl",
             genre : "Murder Mystery"
 		},
-		book6 : {
+		{
 			img : "images/bookRec6.jpg",
 			title : "In the Woods",
 			author : "Tana French",
             genre : "Murder Mystery"
 		},
-		book7 : {
+		{
 			img : "images/bookRec7.jpg",
 			title : "Station Eleven",
 			author : "Emily St. John Mandel",
             genre : "Post-Apocalyptic"
 		},
-		book8 : {
+		{
 			img : "images/bookRec8.jpg",
 			title : "The Passage",
 			author : "Justin Cronin",
             genre : "Post-Apocalyptic"
 		},
-		book9 : {
+		{
 			img : "images/bookRec9.jpg",
 			title : "The Giver",
 			author : "Lois Lowry",
             genre : "Futuristic Utopia"
 		},
-		book10 : {
+		{
 			img : "images/bookRec10.jpg",
 			title : "The House of the Scorpion",
 			author : "Nancy Farmer",
             genre : "Futuristic Utopia"
 		},
-		book11 : {
+		{
 			img : "images/bookRec11.jpg",
 			title : "Interview with a Vampire",
 			author : "Anne Rice",
             genre : "Monster Horror"
 		},
-		book12 : {
+		{
 			img : "images/bookRec12.jpg",
 			title : "The Girl With All the Gifts",
 			author : "M.R. Carey",
             genre : "Monster Horror"
 		},
-		book13 : {
+		{
 			img : "images/bookRec13.jpg",
 			title : "Steelheart",
 			author : "Brandon Sanderson",
-            genre : "Superhero/Graphic Novel"
+            genre : "Superhero or Graphic Novel"
 		},
-		book14 : {
+		{
 			img : "images/bookRec14.jpg",
 			title : "Fables",
 			author : "Bill Willingham",
-            genre : "Superhero/Graphic Novel"
+            genre : "Superhero or Graphic Novel"
 		},
-		book15 : {
+		{
 			img : "images/bookRec15.jpg",
 			title : "Rebecca",
 			author : "Daphne Du Maurier",
             genre : "Psychological Thriller"
 		},
-        book16 : {
+        {
 			img : "images/bookRec16.jpg",
 			title : "The Girl on the Train",
 			author : "Paula Hawkins",
             genre : "Psychological Thriller"
 		},
-		book17 : {
+		{
 			img : "images/bookRec17.jpg",
 			title : "A Wrinkle in Time",
 			author : "Madeleine L'Engle",
             genre : "YA Fantasy"
 		},
-		book18 : {
+		{
 			img : "images/bookRec18.jpg",
 			title : "The Golden Compass",
 			author : "Philip Pullman",
             genre : "YA Fantasy"
 		},
-		book19 : {
+		{
 			img : "images/bookRec19.jpg",
 			title : "The Sun Also Rises",
 			author : "Ernest Hemingway",
             genre : "Classic Fiction"
 		},
-		book20 : {
+		{
 			img : "images/bookRec20.jpg",
 			title : "The Picture of Dorian Gray",
 			author : "Oscar Wilde",
             genre : "Classic Fiction"
 		},
-        book21 : {
+        {
 			img : "images/bookRec21.jpg",
 			title : "The Secret Life of Bees",
 			author : "Sue Monk Kidd",
             genre : "Cultural Fiction"
 		},
-        book22 : {
+        {
 			img : "images/bookRec22.jpg",
 			title : "The Help",
 			author : "Kathryn Stockett",
             genre : "Cultural Fiction"
 		},
-        book23 : {
+        {
 			img : "images/bookRec23.jpg",
 			title : "Life After Life",
 			author : "Kate Atkinson",
             genre : "Modern Fiction"
 		},
-        book24 : {
+        {
 			img : "images/bookRec24.jpg",
 			title : "A Little Life",
 			author : "Hanya Yanagihara",
             genre : "Modern Fiction"
+		},
+        {
+			img : "images/bookRec25.jpg",
+			title : "Girl, Interrupted",
+			author : "BLANK",
+            genre : "Psychological Fiction"
+		},
+        {
+			img : "images/bookRec26.jpg",
+			title : "Franny and Zooey",
+			author : "J.D. Salinger",
+            genre : "Psychological Fiction"
+		},
+        {
+			img : "images/bookRec27.jpg",
+			title : "Mr. Penumbra's 24-Hour Bookstore",
+			author : "Robin Sloan",
+            genre : "Books about Books"
+		},
+        {
+			img : "images/bookRec28.jpg",
+			title : "The Shadow of the Wind",
+			author : "Carlos Ruiz Zafon",
+            genre : "Books about Books"
+		},
+        {
+			img : "images/bookRec29.jpg",
+			title : "The Eyre Affair",
+			author : "Jasper Fforde",
+            genre : "Fantasy Mystery"
+		},
+        {
+			img : "images/bookRec30.jpg",
+			title : "Hounded",
+			author : "Kevin Hearne",
+            genre : "Fantasy Mystery"
 		}
-	};
+	];
 
-    function displayBookList(booksDisplay)
-      {
+    function displayBookList(booksDisplay) {
         var output = "";
         
         for(i in booksDisplay)
@@ -251,10 +291,10 @@
           output += '<li>';
           output += '<img src="' + booksDisplay[i].img + '" class="smallImg" />';
           output += '</li>';
-        }
+        };
         
         bookList.innerHTML = output;
-      }
+      };
       
         displayBookList(booksDisplay);
 
@@ -262,12 +302,109 @@ $( ".smallImg" ).click(function() {
   $( this ).toggleClass( "border" );
 });
 
-$('#submitBooks').on( 'click', function () {
-  var chosenArray = new Array();
-  chosenArray.push($(value.genre).attr('border'));
-  console.log(chosenArray);
+$('#submitBooks').on('click', function () {
+  var borderImages = $('.border');
+  borderImages.each(function () {
+    chosenImages.push($(this).attr('src'));
+  });
+   for (var j = 0; j < chosenImages.length; j++) {
+    for (var i = 0; i < booksDisplay.length; i++) {
+      if ( chosenImages[j] == booksDisplay[i].img){
+      chosenArray.push(booksDisplay[i]);
+    };
+   };
+     console.log(chosenArray);
+  };
   
+  function changeBookList(chosenArray) {
+        var output = "";
+        
+        for(i in chosenArray)
+        {
+          output += '<li>';
+          output += '<img src="' + chosenArray[i].img + '" class="smallImg" />';
+          output += '</li>';
+        };
+        
+        bookList.innerHTML = output;
+      };
+        displayBookList(chosenArray);
+  
+    for (var l = 0; l < chosenArray.length; l++) {
+      for (var m = 0; m < booksRecom.length; m++) {
+      if (chosenArray[l].genre == booksRecom[m].genre)
+        booksRecomList.push(booksRecom[m].img);
+      };
+    };  
+  function displayRecList() {
+        var outputRecs = "";
+        for(i in booksRecomList)
+        {
+          outputRecs += '<li>';
+          outputRecs += '<img src="' + booksRecomList[i] + '" class="smallImg" />';
+          outputRecs += '</li>';
+        };
+        bookRecs.innerHTML = outputRecs;
+      };
+
+displayRecList(); 
+  });
+
+$('#resetBooks').on('click', function () {
+  chosenArray = [];
+  chosenImages = [];
+  booksRecomList = [];
+  document.getElementById("bookRecs").innerHTML = "";
+  displayBookList(booksDisplay);
+  
+  $( ".smallImg" ).click(function() {
+  $( this ).toggleClass( "border" );
 });
+});
+  
+
+  
+ // function search(chosenImages, booksDisplay){
+  //  for (var i=0; i < booksDisplay.length; i++) {
+   //     if (booksDisplay[i].img == chosenImages[0]) {
+   //         chosenArray.push([i]);
+    //    };
+ //   };
+// };
+
+ // for (var i = 0; i < booksDisplay.length; i++) {
+ //   if (chosenImages[0] == booksDisplay[i]){
+  //    console.log("TRUE");
+ //   };
+//  };
+//});
+  
+  
+ // var chosenArray = booksDisplay.filter(chosenImages[i] === booksDisplay[i].img)
+    
+
+  
+    
+   // if ($.inArray(chosenImages, booksDisplay.img)) { 
+    //  chosenArray.push(booksDisplay[i]);
+ //  };
+
+ // Array.prototype.contains = function ( img ) {
+   //for (i in booksDisplay) {
+    //   if (booksDisplay[i].img == chosenImages[i]) 
+    //     chosenArray.push(i);
+  // };
+
+//  var result = $filter('filter')(booksDisplay, {img : chosenImages}, true)
+ //  var chosenImageObjects = $.grep(booksDisplay, function(e){ return e.img === img; });
+   // var result = $('.border').filter(function(e){
+
+// USE FILTER to find matching genres
+  // var chosenArray =  $(".border").filter(GENRE);
+ // chosenArray.push($(value.genre).attr('border'));
+ // console.log(chosenArray);
+  
+//});
   // var bookGenreInput = document.getElementById("bookGenre").value;
  // var bookAuthorInput = document.getElementById("bookAuthor").value;
 //  var yearPublishedInput = document.getElementById("yearPublished").value;
