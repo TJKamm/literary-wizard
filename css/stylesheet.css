@@ -77,10 +77,11 @@ article {
   padding-top: 8em;
 }
 footer {
-  margin-top: 6em;
+  margin-top: 10em;
 }
 #wizard-header {
   float: right;
+  position: relative;
 }
 .smallImg {
   height: 150px;
@@ -92,4 +93,15 @@ footer {
 }
 #bookList, #bookRecs {
   border: 2px solid #656;
+}
+.description {
+  clear: both;
+  display: none;
+  border: 1px solid black;
+  width: 10%;
+  background-color: whitesmoke;
+  font-size: 0.7em;
+  text-align: left;
+  padding: 0.4em;
+  position: absolute;
 }

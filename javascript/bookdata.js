@@ -313,7 +313,6 @@ $('#submitBooks').on('click', function () {
       chosenArray.push(booksDisplay[i]);
     };
    };
-     console.log(chosenArray);
   };
   
   function changeBookList(chosenArray) {
@@ -333,21 +332,23 @@ $('#submitBooks').on('click', function () {
     for (var l = 0; l < chosenArray.length; l++) {
       for (var m = 0; m < booksRecom.length; m++) {
       if (chosenArray[l].genre == booksRecom[m].genre)
-        booksRecomList.push(booksRecom[m].img);
+        booksRecomList.push(booksRecom[m]);
       };
     };  
   function displayRecList() {
         var outputRecs = "";
         for(i in booksRecomList)
         {
-          outputRecs += '<li>';
-          outputRecs += '<img src="' + booksRecomList[i] + '" class="smallImg" />';
+          outputRecs += '<li class="book">';
+          outputRecs += '<img src="' + booksRecomList[i].img + '" class="smallImg" />';
+          outputRecs += '<div class="description">' + booksRecomList[i].title + '<br><br>' + booksRecomList[i].author + '</div>';
           outputRecs += '</li>';
         };
         bookRecs.innerHTML = outputRecs;
       };
 
 displayRecList(); 
+hoverDescription();
   });
 
 $('#resetBooks').on('click', function () {
@@ -362,66 +363,24 @@ $('#resetBooks').on('click', function () {
 });
 });
   
+function hoverDescription () {
+  $(".book").hover( 
+   function(e){
+          $(this).find('div').css({
+          "left" : event.pageX,
+          "top" : event.pageY
+        });
+      $(this).find('div').show();
+   },
+   function(e){
+      $(this).find('div').hide();
+  });
+};
 
-  
- // function search(chosenImages, booksDisplay){
-  //  for (var i=0; i < booksDisplay.length; i++) {
-   //     if (booksDisplay[i].img == chosenImages[0]) {
-   //         chosenArray.push([i]);
-    //    };
- //   };
-// };
-
- // for (var i = 0; i < booksDisplay.length; i++) {
- //   if (chosenImages[0] == booksDisplay[i]){
-  //    console.log("TRUE");
- //   };
-//  };
-//});
-  
-  
- // var chosenArray = booksDisplay.filter(chosenImages[i] === booksDisplay[i].img)
-    
-
-  
-    
-   // if ($.inArray(chosenImages, booksDisplay.img)) { 
-    //  chosenArray.push(booksDisplay[i]);
- //  };
-
- // Array.prototype.contains = function ( img ) {
-   //for (i in booksDisplay) {
-    //   if (booksDisplay[i].img == chosenImages[i]) 
-    //     chosenArray.push(i);
-  // };
-
-//  var result = $filter('filter')(booksDisplay, {img : chosenImages}, true)
- //  var chosenImageObjects = $.grep(booksDisplay, function(e){ return e.img === img; });
-   // var result = $('.border').filter(function(e){
-
-// USE FILTER to find matching genres
-  // var chosenArray =  $(".border").filter(GENRE);
- // chosenArray.push($(value.genre).attr('border'));
- // console.log(chosenArray);
-  
-//});
-  // var bookGenreInput = document.getElementById("bookGenre").value;
- // var bookAuthorInput = document.getElementById("bookAuthor").value;
-//  var yearPublishedInput = document.getElementById("yearPublished").value;
-    
-// bookData.push({bookTitle: bookTitleInput, bookAuthor: bookAuthorInput, yearPublished: yearPublishedInput});
-//  displayRecs();
-//});
-
-//function chooseBooks() { 
-   //     var chosenArray = new Array();
-    //    $('.smallImg').click(function() {
-     //      $(this).css({border: '1px solid #000'});
-      //      chosenArray.push($(this).attr('genre'));
-      //      console.log(chosenArray);
-     //   });
-//}
-
-//output += '<h3>' + booksDisplay[i].title + '</h3>';
-     //     output += '<h4>' + booksDisplay[i].author + '</h4>';
-    //      output += '<h4>' + booksDisplay[i].genre + '</h4>';
+$( "#wizard-header" ).hover(function() {
+  $( "#wizard-header" ).animate({
+    top: "-50",
+    duration: 1000, 
+    easing: 'easeOutBounce'
+  });
+});
