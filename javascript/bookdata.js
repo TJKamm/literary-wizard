@@ -248,7 +248,7 @@ var bookRecs = document.getElementById("bookRecs");
         {
 			img : "images/bookRec25.jpg",
 			title : "Girl, Interrupted",
-			author : "BLANK",
+			author : "Susanna Kaysen",
             genre : "Psychological Fiction"
 		},
         {
@@ -377,10 +377,16 @@ function hoverDescription () {
   });
 };
 
-$( "#wizard-header" ).hover(function() {
+$( "#wizard-header" ).mouseenter(function() {
   $( "#wizard-header" ).animate({
     top: "-50",
-    duration: 1000, 
-    easing: 'easeOutBounce'
+    duration: 2000,
+  });
+});
+  
+$( "#wizard-header" ).mouseleave(function() {
+  $( "#wizard-header" ).animate({
+    top: "0",
+    duration: 2000,
   });
 });
